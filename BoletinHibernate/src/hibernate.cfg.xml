@@ -4,17 +4,17 @@
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/Horario</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/horario</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
-        <mapping resource="hibernateUtils/Profesor.hbm.xml"/>
-        <mapping resource="hibernateUtils/Reparto.hbm.xml"/>
-        <mapping resource="hibernateUtils/Asignatura.hbm.xml"/>
-        <mapping resource="hibernateUtils/Tramohorario.hbm.xml"/>
-        <mapping resource="hibernateUtils/Ofertaeducativa.hbm.xml"/>
-        <mapping resource="hibernateUtils/Horario.hbm.xml"/>
-        <mapping resource="hibernateUtils/Curso.hbm.xml"/>
+        <mapping resource="primero/Tramohorario.hbm.xml"/>
+        <mapping resource="primero/Ofertaeducativa.hbm.xml"/>
+        <mapping resource="primero/Horario.hbm.xml"/>
+        <mapping resource="primero/Reparto.hbm.xml"/>
+        <mapping resource="primero/Asignatura.hbm.xml"/>
+        <mapping resource="primero/Profesor.hbm.xml"/>
+        <mapping resource="primero/Curso.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
