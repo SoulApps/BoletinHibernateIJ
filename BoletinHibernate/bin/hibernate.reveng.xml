@@ -9,4 +9,5 @@
   <table-filter match-catalog="horario" match-name="profesor"/>
   <table-filter match-catalog="horario" match-name="reparto"/>
   <table-filter match-catalog="horario" match-name="tramohorario"/>
+  <table-filter match-catalog="horario" match-name="historicoprofesor"/>
 </hibernate-reverse-engineering>

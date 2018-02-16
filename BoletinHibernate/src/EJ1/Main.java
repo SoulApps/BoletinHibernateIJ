@@ -12,17 +12,15 @@ public class Main {
     public static void main(String[] args) {
         /*Inserta un nuevo profesor.*/
         Date fechaAlta = new Date();
-        String nomProf = "Baldomero" ,apellidos = "Llegate Ligero"
-                ,codProf = "BLL";
-        List<Object> list = new ArrayList<>();
+        String nomProf = "GG" ,apellidos = "Llegate Ligero"
+                ,codProf = "BGG";
+        Profesor prof;
 
-        list.add(codProf);
-        list.add(nomProf);
-        list.add(apellidos);
-        list.add(fechaAlta);
+        prof = new Profesor(codProf,nomProf,apellidos,fechaAlta,null,null);
 
         HibernateUtils.openSesionConection();
-        HibernateUtils.insertSession("profesor", list);
+        HibernateUtils.insertSession(prof);
         HibernateUtils.closeSesionConection();
+        System.exit(1);
     }
 }

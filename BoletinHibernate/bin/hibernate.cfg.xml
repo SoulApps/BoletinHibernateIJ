@@ -16,5 +16,6 @@
         <mapping resource="primero/Asignatura.hbm.xml"/>
         <mapping resource="primero/Profesor.hbm.xml"/>
         <mapping resource="primero/Curso.hbm.xml"/>
+        <mapping resource="primero/HistoricoProfesor.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
