@@ -7,19 +7,13 @@ import java.util.ArrayList;
 
 public class MainHQL {
     public static void main(String[] args) {
-        // ------------------- SESSION
-        String codProf = "BGG", newName = "Bryan Guips";
+        String codProf = "BGG", newName = "Profe actualizado";
         Profesor prof;
         String idName = "name", idId = "id";
-        String hql = "UPDATE Profesor set nombre = :name WHERE id = :id";
+        String hql = "UPDATE Profesor p set p.nombre = :name WHERE p.id = :id";
         ArrayList<String> identifiers = new ArrayList<>();
 
         HibernateUtils.openSesionConection();
-        prof = HibernateUtils.loadData(Profesor.class, "BLL");
-        prof.setNombre("German Gines");
-        HibernateUtils.updateData(prof);
-
-        // -------------------------- hql
         identifiers.add(idName);
         identifiers.add(idId);
         HibernateUtils.updateHQL(hql,identifiers,newName,codProf);
