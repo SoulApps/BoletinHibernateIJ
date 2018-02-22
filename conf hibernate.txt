@@ -1,0 +1,1 @@
+A la hora de asignar un dataSource --> en properties hay que indicar el DriverClass com.mysql.jdbc.Driver
