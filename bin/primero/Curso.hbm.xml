@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 07-feb-2018 14:09:11 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="horario" dynamic-insert="false" dynamic-update="false" mutable="true" name="primero.Curso" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="curso">
+        <composite-id class="primero.CursoId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="codOe" type="string">
+                <column length="3" name="codOe"/>
+            </key-property>
+            <key-property name="codCurso" type="string">
+                <column length="2" name="codCurso"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="primero.Ofertaeducativa" embed-xml="true" fetch="select" insert="false" name="ofertaeducativa" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column length="3" name="codOe" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="primero.Profesor" embed-xml="true" fetch="select" insert="true" name="profesor" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="3" name="codTutor" not-null="true"/>
+        </many-to-one>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="horarios" optimistic-lock="true" sort="unsorted" table="horario">
+            <key on-delete="noaction">
+                <column length="3" name="codOe" not-null="true"/>
+                <column length="2" name="codCurso" not-null="true"/>
+            </key>
+            <one-to-many class="primero.Horario" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="repartos" optimistic-lock="true" sort="unsorted" table="reparto">
+            <key on-delete="noaction">
+                <column length="3" name="codOe" not-null="true"/>
+                <column length="2" name="codCurso" not-null="true"/>
+            </key>
+            <one-to-many class="primero.Reparto" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

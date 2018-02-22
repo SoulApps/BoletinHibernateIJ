@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 07-feb-2018 14:09:11 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="horario" dynamic-insert="false" dynamic-update="false" mutable="true" name="primero.Asignatura" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="asignatura">
+        <id name="codAsig" type="string">
+            <column length="5" name="codAsig"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="nombre" optimistic-lock="true" type="string" unique="false">
+            <column length="80" name="nombre" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="horasSemanales" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="horasSemanales"/>
+        </property>
+        <property generated="never" lazy="false" name="horasTotales" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="horasTotales"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="horarios" optimistic-lock="true" sort="unsorted" table="horario">
+            <key on-delete="noaction">
+                <column length="5" name="codAsig" not-null="true"/>
+            </key>
+            <one-to-many class="primero.Horario" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="repartos" optimistic-lock="true" sort="unsorted" table="reparto">
+            <key on-delete="noaction">
+                <column length="5" name="codAsig" not-null="true"/>
+            </key>
+            <one-to-many class="primero.Reparto" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

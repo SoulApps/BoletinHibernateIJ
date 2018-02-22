@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 07-feb-2018 14:09:11 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="horario" dynamic-insert="false" dynamic-update="false" mutable="true" name="primero.Tramohorario" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="tramohorario">
+        <id name="codTramo" type="string">
+            <column length="2" name="codTramo"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="horaInicio" optimistic-lock="true" type="time" unique="false">
+            <column length="8" name="horaInicio"/>
+        </property>
+        <property generated="never" lazy="false" name="horaFin" optimistic-lock="true" type="time" unique="false">
+            <column length="8" name="horaFin"/>
+        </property>
+        <property generated="never" lazy="false" name="dia" optimistic-lock="true" type="string" unique="false">
+            <column length="9" name="dia"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="horarios" optimistic-lock="true" sort="unsorted" table="horario">
+            <key on-delete="noaction">
+                <column length="2" name="codTramo" not-null="true"/>
+            </key>
+            <one-to-many class="primero.Horario" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

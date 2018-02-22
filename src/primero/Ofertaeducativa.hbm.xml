@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 07-feb-2018 14:09:11 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="horario" dynamic-insert="false" dynamic-update="false" mutable="true" name="primero.Ofertaeducativa" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="ofertaeducativa">
+        <id name="codOe" type="string">
+            <column length="3" name="codOe"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="nombre" optimistic-lock="true" type="string" unique="false">
+            <column length="70" name="nombre"/>
+        </property>
+        <property generated="never" lazy="false" name="descripcion" optimistic-lock="true" type="string" unique="false">
+            <column name="descripcion"/>
+        </property>
+        <property generated="never" lazy="false" name="tipo" optimistic-lock="true" type="string" unique="false">
+            <column length="5" name="tipo"/>
+        </property>
+        <property generated="never" lazy="false" name="fechaLey" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="fechaLey"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="cursos" optimistic-lock="true" sort="unsorted" table="curso">
+            <key on-delete="noaction">
+                <column length="3" name="codOe" not-null="true"/>
+            </key>
+            <one-to-many class="primero.Curso" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

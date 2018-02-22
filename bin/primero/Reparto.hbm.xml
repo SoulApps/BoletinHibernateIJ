@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 07-feb-2018 14:09:11 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="horario" dynamic-insert="false" dynamic-update="false" mutable="true" name="primero.Reparto" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="reparto">
+        <composite-id class="primero.RepartoId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="codOe" type="string">
+                <column length="3" name="codOe"/>
+            </key-property>
+            <key-property name="codCurso" type="string">
+                <column length="2" name="codCurso"/>
+            </key-property>
+            <key-property name="codAsig" type="string">
+                <column length="5" name="codAsig"/>
+            </key-property>
+            <key-property name="codProf" type="string">
+                <column length="3" name="codProf"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="primero.Asignatura" embed-xml="true" fetch="select" insert="false" name="asignatura" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column length="5" name="codAsig" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="primero.Curso" embed-xml="true" fetch="select" insert="false" name="curso" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column length="3" name="codOe" not-null="true"/>
+            <column length="2" name="codCurso" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="primero.Profesor" embed-xml="true" fetch="select" insert="false" name="profesor" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column length="3" name="codProf" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
